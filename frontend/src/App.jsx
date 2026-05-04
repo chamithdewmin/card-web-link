@@ -50,9 +50,10 @@ const SOCIAL_LINKS = [
   },
   {
     href: 'https://www.logozodev.com',
-    label: 'WEBSITE',
+    label: 'logozodev.com',
     delayClass: '[animation-delay:670ms]',
     isGlobe: true,
+    normalCase: true,
   },
 ]
 
@@ -87,7 +88,7 @@ export default function App() {
 
       {/* Links */}
       <nav className="flex w-full flex-col gap-3.5" aria-label="Social links">
-        {SOCIAL_LINKS.map(({ href, label, delayClass, path, isGlobe }) => (
+        {SOCIAL_LINKS.map(({ href, label, delayClass, path, isGlobe, normalCase }) => (
           <a
             key={href}
             href={href}
@@ -112,7 +113,13 @@ export default function App() {
               )}
             </div>
             <div className="relative z-10 mx-[18px] h-8 w-px shrink-0 bg-white/16" />
-            <div className="relative z-10 text-[11px] font-semibold uppercase tracking-[6px] text-white/85 transition-colors duration-[250ms] group-hover:text-white max-[380px]:tracking-[5px]">
+            <div
+              className={`relative z-10 text-[11px] font-semibold text-white/85 transition-colors duration-[250ms] group-hover:text-white ${
+                normalCase
+                  ? 'normal-case tracking-wide text-[12px]'
+                  : 'uppercase tracking-[6px] max-[380px]:tracking-[5px]'
+              }`}
+            >
               {label}
             </div>
             <ArrowRightIcon className="relative z-10 ml-auto mr-0.5 h-[18px] w-[18px] text-brand-green/90 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-brand-green" />
