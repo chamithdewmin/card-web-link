@@ -1,4 +1,4 @@
-# Optional: use with Dokploy / Docker Compose so build context is always repo root.
+# Build context is repo root; Dockerfile copies from ./frontend.
 services:
   web:
     build:

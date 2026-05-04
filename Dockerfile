@@ -1,19 +1,7 @@
-# Card-Web-Link — Vite + React (static) + Nginx
-#
-# IMPORTANT (Dokploy / Docker): build context MUST be the repository root
-# (the folder that contains package.json, src/, public/, frontend/nginx.conf).
-#
+# Build from repository root (includes full repo context):
 #   docker build -t card-web-link .
 #
-# Dokploy: leave "Root Directory" / build context empty or "." (repo root).
-# Do NOT set root to only `frontend/` — COPY needs package.json at context root.
-# Dockerfile path can be either `Dockerfile` or `frontend/Dockerfile` (same build).
-#
-# Run:
-#   docker run --rm -p 8080:80 card-web-link
-#
-# Public URL path (must match Dokploy "Path", trailing slash required for Vite):
-#   docker build --build-arg VITE_BASE=/weblink/ -t card-web-link .
+# Same image as frontend/Dockerfile, but copies from ./frontend (for CI that uses root context).
 
 FROM node:20-alpine AS build
 
@@ -22,12 +10,12 @@ WORKDIR /app
 ARG VITE_BASE=/weblink/
 ENV VITE_BASE=$VITE_BASE
 
-COPY package.json package-lock.json* ./
+COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm ci
 
-COPY index.html vite.config.js tailwind.config.js postcss.config.js ./
-COPY public ./public
-COPY src ./src
+COPY frontend/index.html frontend/vite.config.js frontend/tailwind.config.js frontend/postcss.config.js ./
+COPY frontend/public ./public
+COPY frontend/src ./src
 
 RUN npm run build
 
