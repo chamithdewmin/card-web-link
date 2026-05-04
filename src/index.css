@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  * {
+    @apply box-border m-0 p-0;
+  }
+  html,
+  body {
+    @apply bg-black min-h-screen;
+  }
+  body {
+    @apply flex items-center justify-center antialiased;
+  }
+}
