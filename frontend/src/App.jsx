@@ -58,7 +58,7 @@ const SOCIAL_LINKS = [
 
 export default function App() {
   return (
-    <div className="flex w-full max-w-[720px] min-h-screen flex-col items-center justify-center bg-black px-2 pb-12 pt-[60px] font-sans sm:px-3 max-[380px]:pb-9 max-[380px]:pt-[50px]">
+    <div className="flex w-full max-w-[440px] min-h-screen flex-col items-center justify-center bg-black px-4 pb-12 pt-[60px] font-sans sm:px-5 max-[380px]:pb-9 max-[380px]:pt-[50px]">
       {/* Logo */}
       <div
         className="relative mb-[22px] flex h-[100px] w-[100px] shrink-0 items-center justify-center rounded-full border-[2.5px] border-brand-green opacity-0 animate-fadeD [animation-delay:50ms]"
