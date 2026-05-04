@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.gitignore
+.DS_Store
+*.local
+.cursor
+terminals
+logozodev_exact_match.html
