@@ -5,9 +5,9 @@
 #
 #   docker build -t card-web-link .
 #
-# If your platform defaults context to the Dockerfile’s folder, set:
-#   Build context: .  (repo root)
-#   Dockerfile path: Dockerfile
+# Dokploy: leave "Root Directory" / build context empty or "." (repo root).
+# Do NOT set root to only `frontend/` — COPY needs package.json at context root.
+# Dockerfile path can be either `Dockerfile` or `frontend/Dockerfile` (same build).
 #
 # Run:
 #   docker run --rm -p 8080:80 card-web-link
